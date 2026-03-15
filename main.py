@@ -9,7 +9,7 @@ def fact(n: int) -> int:
 
 
 def main() -> int:
-    result = fact(len(sys.argv))
+    result = fact(len(sys.argv) - 1)
     print(result)
     return 0
 
