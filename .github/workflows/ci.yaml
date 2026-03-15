@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+      - run: python3 -V
       - &test-step
         shell: bash
         run: |
@@ -23,4 +24,14 @@ jobs:
     runs-on: arc-runner-set
     steps:
       - uses: actions/checkout@v6
+      - run: python3 -V
+      - *test-step
+
+  test-self-hosted-docker:
+    runs-on: arc-runner-set-dind
+    container:
+      image: python:3.14-slim
+    steps:
+      - uses: actions/checkout@v6
+      - run: python3 -V
       - *test-step
